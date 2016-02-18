@@ -15,14 +15,20 @@ var toc = document.createElement("table");
 
 /* Create table of contents. */
 for (var i = 0; i < articleLinks.length && i < commentLinks.length; i++) {
+	var articleLink = articleLinks[i].cloneNode(true);
+	var commentLink = commentLinks[i].cloneNode(true);
+
 	var tablerow = document.createElement("tr");
-	var cell, link, anchor;
+	var cell, link;
+
+	// Anchor name of the (original) article if not existing yet
+	if (!articleLinks[i].name)
+		articleLinks[i].name = "article" + i;
 
 	/* Column 1: anchor link for scrolling down to article */
-	anchor = "article" + i;
 	link = document.createElement("a");
 	link.innerHTML = "&dArr;";
-	link.href = "#" + anchor;
+	link.href = "#" + articleLinks[i].name;
 
 	cell = document.createElement("td");
 	cell.appendChild(link);
@@ -30,17 +36,13 @@ for (var i = 0; i < articleLinks.length && i < commentLinks.length; i++) {
 
 	/* Column 2: link to article in own page */
 	cell = document.createElement("td");
-	cell.appendChild(articleLinks[i].cloneNode(true));
+	cell.appendChild(articleLink);
 	tablerow.appendChild(cell);
 
 	/* Column 3: link to article comments in own page */
 	cell = document.createElement("td");
-	cell.appendChild(commentLinks[i].cloneNode(true));
+	cell.appendChild(commentLink);
 	tablerow.appendChild(cell);
-
-	// Anchor name of the article if not existing yet
-	if (!articleLinks[i].name)
-		articleLinks[i].name = anchor;
 
 	toc.appendChild(tablerow);
 }
