@@ -5,7 +5,8 @@
 // @include     *://www.openstreetmap.org/diary*
 // @version     0.1.0
 // @icon        http://www.openstreetmap.org/assets/osm_logo.png
-// @grant       none
+// @grant       GM_getValue
+// @grant       GM_setValue
 // ==/UserScript==
 
 var articleLinks = document.querySelectorAll(".diary_post h2 > a");
@@ -40,6 +41,17 @@ for (var i = 0; i < articleLinks.length && i < commentLinks.length; i++) {
 	tablerow.appendChild(cell);
 
 	/* Column 3: link to article comments in own page */
+
+	// Highlighted if changed since last visit (new comments or entire new post)
+	var key = commentLink.href;
+	var newVal = commentLink.textContent;
+	var oldVal = GM_getValue(key);
+
+	if (newVal !== oldVal) {
+		commentLink.style.color = "red";
+		GM_setValue(key, newVal);
+	}
+
 	cell = document.createElement("td");
 	cell.appendChild(commentLink);
 	tablerow.appendChild(cell);
