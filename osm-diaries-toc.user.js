@@ -9,10 +9,13 @@
 // @grant       GM_setValue
 // ==/UserScript==
 
+var diaryPosts = document.querySelectorAll(".diary_post");
+
 var articleLinks = document.querySelectorAll(".diary_post h2 > a");
 var commentLinks = document.querySelectorAll(".diary_post .secondary-actions a[href$=comments]");
 
 var toc = document.createElement("table");
+var olderNewer = document.createElement("span");
 
 /* Create table of contents. */
 for (var i = 0; i < articleLinks.length && i < commentLinks.length; i++) {
@@ -65,3 +68,15 @@ for (var i = 0; i < articleLinks.length && i < commentLinks.length; i++) {
 }
 
 document.querySelector(".content-body .content-inner").insertBefore(toc, document.querySelector(".diary_post"));
+
+/* Duplicate the "older/newer entries" links from bottom of page to after the TOC. */
+if (diaryPosts.length > 0) {
+	var olderNewerNode = diaryPosts[diaryPosts.length - 1];
+
+	while (olderNewerNode.nextSibling) {
+		olderNewerNode = olderNewerNode.nextSibling;
+		olderNewer.appendChild(olderNewerNode.cloneNode(true));
+	}
+
+	document.querySelector(".content-body .content-inner").insertBefore(olderNewer, document.querySelector(".diary_post"));
+}
