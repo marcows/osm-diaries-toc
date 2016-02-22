@@ -2,9 +2,15 @@
 // @name        OSM diaries TOC
 // @namespace   https://github.com/marcows
 // @description Adds a table of contents to the OpenStreetMap diaries page and highlights new posts and comments.
+// @description:de Fügt ein Inhaltsverzeichnis zur OpenStreetMap Benutzer-Blogs-Seite hinzu und hebt neue Beiträge und Kommentare hervor.
 // @include     *://www.openstreetmap.org/diary*
-// @version     1.0.0
+// @version     1.0.1
+// @license     WTFPL
 // @icon        http://www.openstreetmap.org/assets/osm_logo.png
+// @supportURL  https://github.com/marcows/osm-diaries-toc
+// @compatible  firefox
+// @compatible  chrome
+// @compatible  opera
 // @grant       GM_getValue
 // @grant       GM_setValue
 // ==/UserScript==
