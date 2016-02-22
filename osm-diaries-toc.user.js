@@ -3,7 +3,7 @@
 // @namespace   https://github.com/marcows
 // @description Adds a table of contents to the OpenStreetMap diaries page and highlights new posts and comments.
 // @include     *://www.openstreetmap.org/diary*
-// @version     0.1.0
+// @version     1.0.0
 // @icon        http://www.openstreetmap.org/assets/osm_logo.png
 // @grant       GM_getValue
 // @grant       GM_setValue
