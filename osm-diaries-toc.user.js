@@ -52,7 +52,9 @@ for (var i = 0; i < articleLinks.length && i < commentLinks.length; i++) {
 	/* Column 3: link to article comments in own page */
 
 	// Highlighted if changed since last visit (new comments or entire new post)
-	var key = commentLink.href;
+	// Diary entry ID:
+	var key = commentLink.href.match(/\/([0-9]+)#/)[1];
+	// Language dependent text, e.g. "No comments", "1 comment", "2 comments" etc.:
 	var newVal = commentLink.textContent;
 	var oldVal = GM_getValue(key);
 
