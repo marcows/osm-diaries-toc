@@ -17,7 +17,7 @@
 
 var diaryPosts = document.querySelectorAll(".diary_post");
 
-var articleLinks = document.querySelectorAll(".diary_post h2 > a");
+var articleLinks = document.querySelectorAll(".diary_post .post_heading h2 > a");
 var commentLinks = document.querySelectorAll(".diary_post .secondary-actions a[href$=comments]");
 
 var toc = document.createElement("table");
