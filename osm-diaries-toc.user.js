@@ -61,10 +61,8 @@ for (var i = 0; i < articleLinks.length && i < commentLinks.length; i++) {
 	if (newVal !== oldVal) {
 		commentLink.style.color = "red";
 		// Add the previous content as link title
-		if (oldVal)
-			commentLink.title = oldVal;
-		else
-			commentLink.title = "-";
+		commentLink.title = oldVal ? oldVal : "-";
+
 		GM_setValue(key, newVal);
 	}
 
