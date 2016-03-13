@@ -4,6 +4,7 @@
 // @description Adds a table of contents to the OpenStreetMap diaries page and highlights new posts and comments.
 // @description:de Fügt ein Inhaltsverzeichnis zur OpenStreetMap Benutzer-Blogs-Seite hinzu und hebt neue Beiträge und Kommentare hervor.
 // @include     *://www.openstreetmap.org/diary*
+// @include     /^https?://www\.openstreetmap\.org/user/.*/diary[^/]*$/
 // @version     2.0.1
 // @license     WTFPL
 // @icon        http://www.openstreetmap.org/assets/osm_logo.png
