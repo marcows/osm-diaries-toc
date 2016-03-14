@@ -38,7 +38,7 @@ for (var i = 0; i < articleLinks.length && i < commentLinks.length; i++) {
 
 	/* Column 1: anchor link for scrolling down to article */
 	link = document.createElement("a");
-	link.innerHTML = "&dArr;";
+	link.innerHTML = "&nbsp;&dArr;&nbsp;";
 	link.href = "#" + articleLinks[i].name;
 
 	cell = document.createElement("td");
