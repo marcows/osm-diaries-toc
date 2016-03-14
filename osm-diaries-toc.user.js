@@ -68,6 +68,7 @@ for (var i = 0; i < articleLinks.length && i < commentLinks.length; i++) {
 	}
 
 	cell = document.createElement("td");
+	cell.style.whiteSpace = "nowrap";
 	cell.appendChild(commentLink);
 	tablerow.appendChild(cell);
 
