@@ -51,10 +51,16 @@ for (var i = 0; i < articleLinks.length && i < commentLinks.length; i++) {
 	tablerow.appendChild(cell);
 
 	/* Column 3: link to article comments in own page */
+	cell = document.createElement("td");
+	cell.style.whiteSpace = "nowrap";
+	cell.appendChild(commentLink);
+	tablerow.appendChild(cell);
 
-	// Highlighted if changed since last visit (new comments or entire new post)
+	/* Highlighted if changed since last visit (new comments or entire new post) */
+
 	// Diary entry ID:
 	var key = commentLink.href.match(/\/([0-9]+)#/)[1];
+
 	// Language dependent text, e.g. "No comments", "1 comment", "2 comments" etc.:
 	var newVal = commentLink.textContent;
 	var oldVal = GM_getValue(key);
@@ -66,11 +72,6 @@ for (var i = 0; i < articleLinks.length && i < commentLinks.length; i++) {
 
 		GM_setValue(key, newVal);
 	}
-
-	cell = document.createElement("td");
-	cell.style.whiteSpace = "nowrap";
-	cell.appendChild(commentLink);
-	tablerow.appendChild(cell);
 
 	toc.appendChild(tablerow);
 }
