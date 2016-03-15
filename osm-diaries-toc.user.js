@@ -66,9 +66,15 @@ for (var i = 0; i < articleLinks.length && i < commentLinks.length; i++) {
 	var oldVal = GM_getValue(key);
 
 	if (newVal !== oldVal) {
+		// New comment (or new post)
 		commentLink.style.color = "red";
 		// Add the previous content as link title
 		commentLink.title = oldVal ? oldVal : "-";
+
+		if (!oldVal) {
+			// New post
+			articleLink.style.color = "red";
+		}
 
 		GM_setValue(key, newVal);
 	}
