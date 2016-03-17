@@ -16,6 +16,8 @@
 // @grant       GM_setValue
 // ==/UserScript==
 
+var contentBox = document.querySelector(".content-body .content-inner");
+
 var diaryPosts = document.querySelectorAll(".diary_post");
 
 var articleLinks = document.querySelectorAll(".diary_post .post_heading h2 > a");
@@ -82,7 +84,7 @@ for (var i = 0; i < articleLinks.length && i < commentLinks.length; i++) {
 	toc.appendChild(tablerow);
 }
 
-document.querySelector(".content-body .content-inner").insertBefore(toc, document.querySelector(".diary_post"));
+contentBox.insertBefore(toc, diaryPosts[0]);
 
 /* Duplicate the "older/newer entries" links from bottom of page to after the TOC. */
 if (diaryPosts.length > 0) {
@@ -93,5 +95,5 @@ if (diaryPosts.length > 0) {
 		olderNewer.appendChild(olderNewerNode.cloneNode(true));
 	}
 
-	document.querySelector(".content-body .content-inner").insertBefore(olderNewer, document.querySelector(".diary_post"));
+	contentBox.insertBefore(olderNewer, diaryPosts[0]);
 }
