@@ -11,3 +11,6 @@ the user diaries, this is a way to improve this situation to some degree.
 The detection of new comments is implemented by storing and comparing the
 language dependent comments link text. So it doesn't work if switching the
 website language. In this case, all comments will appear to be new again.
+
+To use this script in Firefox, you first need to install the Greasemonkey plugin for Firefox.
+To use it in Chrome, you need to install Tampermonkey.
