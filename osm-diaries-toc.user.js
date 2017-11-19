@@ -12,9 +12,14 @@
 // @compatible  firefox
 // @compatible  chrome
 // @compatible  opera
+// @require     https://greasemonkey.github.io/gm4-polyfill/gm4-polyfill.js
+// @grant       GM.getValue
 // @grant       GM_getValue
+// @grant       GM.setValue
 // @grant       GM_setValue
 // ==/UserScript==
+
+(async function() {
 
 var contentBox = document.querySelector(".content-body .content-inner");
 
@@ -65,7 +70,7 @@ for (var i = 0; i < articleLinks.length && i < commentLinks.length; i++) {
 
 	// Language dependent text, e.g. "No comments", "1 comment", "2 comments" etc.:
 	var newVal = commentLink.textContent;
-	var oldVal = GM_getValue(key);
+	var oldVal = await GM.getValue(key);
 
 	if (newVal !== oldVal) {
 		// New comment (or new post)
@@ -78,7 +83,7 @@ for (var i = 0; i < articleLinks.length && i < commentLinks.length; i++) {
 			articleLink.style.color = "red";
 		}
 
-		GM_setValue(key, newVal);
+		GM.setValue(key, newVal);
 	}
 
 	toc.appendChild(tablerow);
@@ -97,3 +102,5 @@ if (diaryPosts.length > 0) {
 
 	contentBox.insertBefore(olderNewer, diaryPosts[0]);
 }
+
+})();
