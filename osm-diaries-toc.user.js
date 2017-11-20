@@ -26,7 +26,7 @@ var contentBox = document.querySelector(".content-body .content-inner");
 var diaryPosts = document.querySelectorAll(".diary_post");
 
 var articleLinks = document.querySelectorAll(".diary_post .post_heading h2 > a");
-var commentLinks = document.querySelectorAll(".diary_post .secondary-actions a[href$=comments]");
+var commentLinks = document.querySelectorAll(".diary_post .secondary-actions a[href$='#comments']");
 
 var toc = document.createElement("table");
 var olderNewer = document.createElement("span");
