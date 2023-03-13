@@ -5,7 +5,7 @@
 // @description:de Fügt ein Inhaltsverzeichnis zur OpenStreetMap Benutzer-Blogs-Seite hinzu und hebt neue Beiträge und Kommentare hervor.
 // @include     *://www.openstreetmap.org/diary*
 // @include     /^https?://www\.openstreetmap\.org/user/.*/diary[^/]*$/
-// @version     3.0.0
+// @version     3.0.1
 // @license     WTFPL
 // @icon        http://www.openstreetmap.org/assets/osm_logo.png
 // @supportURL  https://github.com/marcows/osm-diaries-toc
